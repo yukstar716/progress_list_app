@@ -1,2 +1,14 @@
-<h1>Ideas#new</h1>
-<p>Find me in app/views/ideas/new.html.erb</p>
+<%= form_with model: @ideas do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>
