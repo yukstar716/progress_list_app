@@ -1,6 +1,15 @@
-<% @ideas.each do |idea| %>
-    <p><%= idea.title %></p>
-    <p><%= idea.content %></p>
-<% end %>
-
-<%= link_to "Post", new_idea_path %>
+<div align="center">
+<h2>IdeaBrite</h2>
+    <table>
+        <% @ideas.each do |idea| %>
+            <tr>
+                <th><%= idea.title %></th>
+            </tr>
+            <tr>
+                <th><%= idea.content %></th>
+            </tr>
+                <th><%= link_to 'Edit', edit_idea_path(idea.id) %></th>
+        <% end %>
+    </table>
+    <%= link_to "Post", new_idea_path %>
+</div>

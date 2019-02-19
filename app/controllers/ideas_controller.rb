@@ -21,12 +21,22 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @idea = Idea.find(params[:id])
+    @idea = find_idea_by_id
+  end
+
+  def update
+    @idea = find_idea_by_id
+    @idea.update(idea_params)
+    redirect_to ideas_path
   end
 
   private
     def idea_params
       params.require(:idea).permit(:title, :content)
     end
+
+  def find_idea_by_id
+    Idea.find(params[:id])
+  end
 
 end
