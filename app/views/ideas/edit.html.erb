@@ -2,4 +2,5 @@
 
 <%= render "form" %>
 
+<%= link_to "Delete", idea_path(@idea.id), method: :delete, data: {confirm: "Are you sure to delete the post?"} %>
 <%= link_to "Back", ideas_path %> 

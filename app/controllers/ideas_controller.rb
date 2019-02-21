@@ -26,7 +26,16 @@ class IdeasController < ApplicationController
 
   def update
     @idea = find_idea_by_id
-    @idea.update(idea_params)
+    if @idea.update(idea_params)
+      redirect_to ideas_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @idea = find_idea_by_id
+    @idea.destroy
     redirect_to ideas_path
   end
 
