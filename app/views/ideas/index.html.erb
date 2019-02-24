@@ -1,30 +1,38 @@
-<h1 class="text-left mb-5">IdeaBrite</h1>
-  <header class="fixed-top text-right pr-3 pt-2">
-    <button type="button" class="btn btn-outline-primary">
-      <%= link_to "Post", new_idea_path %>
-    </button>
-  </header>
-    <body>
+<body>
+  <div class="top">
+    <div class="header text-center pt-5 pb-5">
+      <h1 class="text-center">IdeaBrite</h1>
+      <div="sub-title">Tell us your idea and get feedback</div>
+        <div class="fixed-top text-right pr-3 pt-2">
+          <button type="button" class="btn btn-outline-primary">
+            <%= link_to "Post", new_idea_path %>
+          </button>
+        </div>
+    </div>
       <div align="center">
         <% @ideas.each do |idea| %>
-          <div class="card mb-5 col-sm-8">
-            <div class="card-body">
-              <table>
-                <tr>
-                  <th class="text-center">
-                    <h3 class="card-title"><%= idea.title %></h3>
-                  </th>
-                </tr>
-                <tr>
-                  <th class="text-center">
-                    <p class="card-text"><%= idea.content %></p>
-                  </th>
-                </tr>
-                  <th class="text-center"><%= link_to 'Edit', edit_idea_path(idea.id) %></th>
-              </table>
-            </div>
+          <div class="card text-center mt-5 mb-5 col-sm-5 bg-dark text-white">
+            <img class="card-img" src="..." alt="カードの画像">
+              <div class="card-image-overlay">
+                <div class="card-body pb-5">
+                  <tr>
+                    <th>
+                      <h3 class="card-title"><%= idea.title %></h3>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <p class="card-text pb-5"><%= idea.content %></p>
+                    </th>
+                  </tr>
+                    <th>
+                      <%= link_to 'Edit', edit_idea_path(idea.id) %>
+                    </th>
+                </div>
+              </div>
           </div>
         <% end %>
       </div>
-    <body>
-</div>
+    </div>
+  </div>
+<body>
