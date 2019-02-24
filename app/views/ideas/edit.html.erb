@@ -1,6 +1,19 @@
-<h2>Edit</h2>
+<div>
+  <div class="col-md-4 offset-md-4">
+    <h2 class="text-center pt-5">Edit</h2>
 
-<%= render "form" %>
+      <%= render "form" %>
 
-<%= link_to "Delete", idea_path(@idea.id), method: :delete, data: {confirm: "Are you sure to delete the post?"} %>
-<%= link_to "Back", ideas_path %> 
+      <div class="text-left pb-2">
+        <button type="button" class="btn btn-outline-secondary">
+          <%= link_to "Delete", idea_path(@idea.id), method: 
+          :delete, data: {confirm: "Are you sure to delete the post?"} %>
+        </button>
+      </div>
+      <div class="test-left">
+        <button type="button" class="btn btn-outline-secondary">
+          <%= link_to "Back", ideas_path %>
+        </button>
+      </div>
+  </div>
+</div>
