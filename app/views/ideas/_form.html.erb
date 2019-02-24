@@ -1,13 +1,14 @@
 <%= form_with model: @idea do |f| %>
-  <p>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </p>
+  <div class="form_group pt-4 pb-3">
+    <%= f.text_field :title, placeholder: "Write down your idea", class: "form-control" %>
+  </div>
 
-  <p>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </p>
+  <div class="form-group" >
+    <%= f.text_area :content, placeholder: "Tell us more about your idea", rows: 7, class: "form-control" %>
+  </div>
 
-  <%= f.submit %>
+  <div class="text-center"> 
+    <%= f.submit "Create Idea", class: "btn btn-primary" %>
+  </div>
+
 <% end %>

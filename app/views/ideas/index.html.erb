@@ -1,15 +1,28 @@
-<div align="center">
-<h2>IdeaBrite</h2>
-    <table>
+<h1 class="text-left mb-5">IdeaBrite</h1>
+  <header class="fixed-top text-right pr-3 pt-2">
+    <button type="button" class="btn btn-outline-primary"><%= link_to "Post", new_idea_path %></button>
+  </header>
+    <body>
+      <div align="center">
         <% @ideas.each do |idea| %>
-            <tr>
-                <th><%= idea.title %></th>
-            </tr>
-            <tr>
-                <th><%= idea.content %></th>
-            </tr>
-                <th><%= link_to 'Edit', edit_idea_path(idea.id) %></th>
+          <div class="card mb-5 col-sm-8">
+            <div class="card-body">
+              <table>
+                <tr>
+                  <th class="text-center">
+                    <h3 class="card-title"><%= idea.title %></h3>
+                  </th>
+                </tr>
+                <tr>
+                  <th class="text-center">
+                    <p class="card-text"><%= idea.content %></p>
+                  </th>
+                </tr>
+                  <th class="text-center"><%= link_to 'Edit', edit_idea_path(idea.id) %></th>
+              </table>
+            </div>
+          </div>
         <% end %>
-    </table>
-    <%= link_to "Post", new_idea_path %>
+      </div>
+    <body>
 </div>
