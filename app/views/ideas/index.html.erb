@@ -1,3 +1,17 @@
+<p style="color: Red"><%= @error %></p>
+<%= form_with action: :auth do |f| %>
+  <div class="field">
+    <%= label_tag :username, 'User Name' %>：<br />
+    <%= text_field_tag :username, '', size: 20 %>
+  </div>
+  <div class="field">
+    <%= label_tag :password, 'Password' %>：<br />
+    <%= password_field_tag :password, '', size: 20 %>
+  </div>
+  <!--ログイン後にリダイレクトすべきアクションを隠しフィールにセット-->
+  <%= hidden_field_tag :referer, flash[referer] %>
+  <%= submit_tag 'Login' %>
+<% end %>
 <body>
   <div class="top">
     <div class="header text-center pt-5 pb-5">

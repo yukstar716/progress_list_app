@@ -1,5 +1,8 @@
 class IdeasController < ApplicationController
-  def index
+  # viewアクションにのみ適用されるbeforeフィルターcheck_loginedを登録
+  before_action :check_logined, only: :view
+
+  def incodex
     @ideas = Idea.all
   end
 
@@ -40,6 +43,22 @@ class IdeasController < ApplicationController
   end
 
   private
+
+  def check_logined
+    if session[:usr] then
+      begin
+        @usr = User.find(session[:usr])
+        resucue ActiveRecord::RecordNotFound
+        reet_session
+      end
+    end
+
+    unless @usr
+      flash[:referer] = request.fullpath
+      redirect_to controller: :login, action: :index
+    end
+  end
+
     def idea_params
       params.require(:idea).permit(:title, :content)
     end
