@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+  end
     #get 'ideas/index'
     #get 'ideas/show'
     #get 'ideas/new'
