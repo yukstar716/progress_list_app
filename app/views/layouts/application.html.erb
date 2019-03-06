@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProgressList</title>
+    <title>IdeaBrite</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <nav class="navbar-expand-md.navbar-light pt-1" 
+    style="background-color: #58b2f4;">
+      <a class="navbar-brand ml-2 h1">IdeaBrite</a>
+    </nav>
     <div class= "container">
       <% if flash[:notice] %>
         <p class="text-success"><%= flash[:notice] %></p>
