@@ -1,33 +1,8 @@
 <div>
   <h1>ユーザー登録</h1>
-    <%= form_with model: [:admin, @user], local: true do |f| %>
-      <div class="form-group">
-        <%= f.label :name, 'Name' %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :email, 'Email' %>
-        <%= f.text_field :email, class: 'form-control' %>
-      </div>
-
-      <div class="form-check">
-        <%= f.label :admin, class: 'form-check-label' %>
-        <%= f.check_box :admin, class: 'form-check-input', title: 'Admin' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password, 'Password' %>
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password_confirmation, 'Confirm your password' %>
-        <%= f.password_field :password_confirmation, class: 'form-control' %>
-      </div>
-
-      <div>
-        <%= f.submit 'Sign up', class: 'btn btn-primary' %>
-      </div>
-    <% end %>
+    <div class="nav.justify-content-end">
+      <%= link_to '一覧', admin_users_path, 
+      class: 'nav-link' %>
+      <%= render partial: 'form', locals: { user: @user } %>
+    </div>
 </div>
