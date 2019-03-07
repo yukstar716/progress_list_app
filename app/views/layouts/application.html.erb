@@ -13,6 +13,25 @@
     <nav class="navbar-expand-md.navbar-light pt-1" 
     style="background-color: #58b2f4;">
       <a class="navbar-brand ml-2 h1">IdeaBrite</a>
+      <ul class="navbar-nav ml-auto">
+        <% if current_user %>
+          <li class="nav-item">
+            <% link_to 'タスク一覧', task_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <% link_to 'ユーザー一覧', admin_users_path, 
+            class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <% link_to 'ログアウト', logout_path, method: :delete, 
+            class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <% link_to 'ログイン', login_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
     </nav>
     <div class= "container">
       <% if flash[:notice] %>
