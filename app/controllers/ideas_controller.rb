@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
 
   def index
-    @ideas = Idea.all
+    @ideas = current_user.ideas.all
   end
 
   def show
@@ -12,7 +12,7 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)
+    @idea = current_user.ideas.new(idea_params)
     if @idea.save
       redirect_to ideas_path, notice: 'Success!'
     else
@@ -22,11 +22,11 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @idea = find_idea_by_id
+    @idea = current_user.ideas.find(params[:id])
   end
 
   def update
-    @idea = find_idea_by_id
+    @idea = current_user.ideas.find(params[:id])
     if @idea.update(idea_params)
       redirect_to ideas_path
     else
@@ -35,7 +35,7 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    @idea = find_idea_by_id
+    @idea = current_user.ideas.find(params[:id])
     @idea.destroy
     redirect_to ideas_path
   end
