@@ -1,0 +1,10 @@
+<%= form_with :session, url: login_path do |f| %>
+  <div class="form_group">
+    <%= f.text_field :mail %>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="text-center">
+    <%= f.submit "ログイン", class: "btn-btn-primary" %>
+  </div>
+<% end %>
