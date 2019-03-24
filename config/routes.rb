@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # login/logout
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  delete 'login', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy'
     #get 'ideas/index'
     #get 'ideas/show'
     #get 'ideas/new'
